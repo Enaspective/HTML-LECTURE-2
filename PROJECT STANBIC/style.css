@@ -1,0 +1,221 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    height: 100%;
+    background: linear-gradient(to bottom, #0e294f, #1d5eaa);
+    color: white;
+    padding: 40px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 60px;
+}
+
+.main-text {
+    position: absolute;
+    bottom: 200px;
+    left: 40px;
+}
+
+.main-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.boxes {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.box {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.footer span {
+    border-top: 4px solid white;
+    padding-top: 5px;
+}
+
+.right-footer {
+    text-align: right;
+    color: white;
+}
+
+.right-footer em {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.right-footer small {
+    font-size: 11px;
+    display: block;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+
+.main-text {
+  text-align: center;
+  margin-block-end: 30px;
+}
+
+.main-text h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003399;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.box {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #003399;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.right-footer {
+  text-align: right;
+}
+
+.right-footer strong {
+  display: block;
+  font-size: 16px;
+}
+
+.right-footer em {
+  font-style: italic;
+  color: #003399;
+}
+
+.right-footer small {
+  display: block;
+  font-size: 12px;
+}
+
+/* Page 2 (Form Section) */
+.page-break {
+  page-break-before: always;
+  margin-top: 50px;
+}
+
+.form-container {
+  background: #fff;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  background: #003399;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+}
+
+.signature-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.passport-box {
+  border: 1px dashed #aaa;
+  width: 100px;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  margin-left: 20px;
+}

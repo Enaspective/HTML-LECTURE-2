@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        margin-top: 100px;
+        text-align: center;
+      "
+    >
+      <h1>Currency Converter</h1>
+      <p>Convert any currency to Naira</p>
+
+      <div>
+        <select id="currency">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">Euro</option>
+          <option value="GBP">British Pound</option>
+          <option value="JPY">Japanese Yen</option>
+        </select>
+
+        <input id="num_amount" type="number" placeholder="Enter amount" />
+        <button onclick="convert()">Convert</button>
+        <h4>Exchange Rates:</h4>
+        <p>
+          USD Rate: ₦1570 | GBP Rate: ₦2000 | EUR Rate: ₦1800 | JPY Rate: ₦15
+        </p>
+
+        <section id="display"></section>
+      </div>
+    </main>
+
+    <script>
+      //DOM: Document Object Modelling: Document Object Manipuation
+      //CRUD: Create, Read, Update, Delete
+
+      const elem = document.createElement("h2");
+      document.createTextNode("i was created by JavaScript");
+      elem.appendChild(text);
+      console.log(elem);
+
+      //document.getElementById("num_dollar").value = 50;
+
+      function convert() {
+        const amount = document.getElementById("num_amount").value;
+        const currency = document.getElementById("currency").value;
+
+        if (amount === "" || isNaN(amount) || amount <= 0) {
+          document.getElementById(
+            "display"
+          ).innerHTML = `<p>Please enter a valid amount!</p>`;
+          return;
+        }
+
+        const rates = {
+          USD: 1570, // 1 USD = 1570 Naira
+          EUR: 1800, // 1 EUR = 1800 Naira
+          GBP: 2000, // 1 GBP = 2000 Naira
+          JPY: 15, // 1 JPY = 15 Naira
+        };
+
+        let naira = amount * rates[currency];
+
+        document.getElementById(
+          "display"
+        ).innerHTML = `<p>${amount} ${currency} in Naira is: <b>₦${naira}</b></p>`;
+      }
+
+      // document.getElementById("num_amount").value;
+      // document.getElementById(
+      //   "display"
+      // ).innerHTML = `<p>$${Input} in Naira is: <b>₦${amount}</b></p>`;
+    </script>
+
+    <!-- <script>
+      document.querySelector("button").addEventListener("click", function () {
+        const amount = document.querySelector("input").value;
+        const rate = 1570;
+        const converted = amount * rate;
+        alert(`Converted Amount: ${converted} Naira`);
+      });
+    </script> -->
+  </body>
+</html>

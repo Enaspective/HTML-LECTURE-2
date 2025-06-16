@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account Opening Form</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-break {
+      page-break-before: always;
+      margin-top: 50px;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      background: #003399;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="date"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+    }
+
+    .signature-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .passport-box {
+      border: 1px dashed #aaa;
+      width: 100px;
+      height: 120px;
+      text-align: center;
+      line-height: 120px;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1 -->
+  <div class="container">
+    <img src="Stanbig-Logo.png" alt="Stanbic Logo" class="logo">
+    <div class="main-text">
+      <h1>ACCOUNT<br>OPENING<br>FORM</h1>
+      <p class="subtitle">Individual Account Opening Form</p>
+      <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>www.stanbicibtcbank.com</span>
+      <div class="right-footer">
+        <strong>Stanbic IBTC</strong>
+        <em>IT CAN BE.</em>
+        <small>A member of Standard Bank Group</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page-break">
+    <div class="form-container">
+      <h2>INDIVIDUAL ACCOUNT OPENING FORM</h2>
+
+      <!-- Inserted Form Content Begins -->
+      <div class="section">
+        <div class="checkbox-group">
+          <label><input type="checkbox" /> Individual Account</label>
+          <label><input type="checkbox" /> Joint Account</label>
+          <label><input type="checkbox" /> Investment Account</label>
+          <label><input type="checkbox" /> Chess</label>
+          <label><input type="checkbox" /> Blue Blossom*</label>
+        </div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" /> Platinum Current Account</label>
+          <label><input type="checkbox" /> Max Yield</label>
+          <label><input type="checkbox" /> Savings</label>
+          <label><input type="checkbox" /> Current</label>
+          <label><input type="checkbox" /> Domiciliary</label>
+        </div>
+      </div>
+
+      <h2>1. PERSONAL INFORMATION/ACCOUNT MANDATE</h2>
+      <div class="section">
+        <div class="form-group">
+          <!-- Include personal details fields -->
+          <label>Title</label>
+          <input type="text" />
+          <label>First Name</label>
+          <input type="text" />
+          <label>Other Name</label>
+          <input type="text" />
+          <label>Surname</label>
+          <input type="text" />
+          <!-- Continue with other form fields as per your form -->
+        </div>
+        <div class="signature-section">
+          <div>
+            <label>Signature</label>
+            <input type="text" />
+            <label>Date</label>
+            <input type="date" />
+          </div>
+          <div class="passport-box">Passport</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

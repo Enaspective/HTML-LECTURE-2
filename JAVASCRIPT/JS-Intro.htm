@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Script Foundation</title>
+  </head>
+  <body>
+    <h1 id="ex">JavaScript Foundation</h1>
+
+    <!-- <script> -->
+      alert("Hello My People");
+    </script>
+
+    <script>
+      //Functions
+      function greet("hello") {
+        alert("Hello, World!");
+      }
+
+
+      //Types of Functions
+      //1. Function Declaration
+      function greet(name) {
+        alert("Hello, " + name + "!");
+      }
+
+      //2. Function Expression
+      const greet = function(name) {
+        alert("Hello, " + name + "!");
+      };
+
+      //3. Arrow Function
+      const greet = (name) => {
+        alert("Hello, " + name + "!");
+      };
+
+      //4. Immediately Invoked Function Expression (IIFE)
+      (function() {
+        alert("This is an IIFE!");
+      })();
+
+      //5. Generator Function
+      function* generatorFunction() {
+        yield "First value";
+        yield "Second value";
+      }
+
+      
+    </script>
+  </body>
+</html>

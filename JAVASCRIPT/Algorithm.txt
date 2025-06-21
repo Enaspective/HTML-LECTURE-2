@@ -1,0 +1,21 @@
+Algorithm SentenceAnalyzer
+Input: sentence (string ending with a point)
+Output: character count, word count, vowel count
+
+1. Initialize counters:
+   char_count = 0
+   word_count = 0
+   vowel_count = 0
+   vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+
+2. For each character in sentence:
+   a. Increment char_count
+   b. If character is in vowels:
+      Increment vowel_count
+   c. If character is a space:
+      Increment word_count
+
+3. If char_count > 0:
+   Increment word_count (to account for the last word before the point)
+
+4. Return char_count, word_count, vowel_count

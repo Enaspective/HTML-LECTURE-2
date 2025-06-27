@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      // Problem 1
+
+      SET1 = [3, 1, 7, 9]
+      SET2 = [2, 4, 1, 9, 3]
+      sum = 0
+
+      FOR each x IN SET1 DO
+          IF x NOT IN SET2 THEN
+              sum = sum + x
+          END IF
+      END FOR
+
+      FOR each y IN SET2 DO
+          IF y NOT IN SET1 THEN
+              sum = sum + y
+          END IF
+      END FOR
+
+      PRINT sum  // Output: 13
+
+      // Problem 2
+
+      PROCEDURE dot_product(v1, v2, ps)
+          ps = 0
+          FOR i FROM 0 TO LENGTH(v1) - 1 DO
+              ps = ps + (v1[i] * v2[i])
+          END FOR
+      END PROCEDURE
+
+      // Main algorithm
+      n = INPUT("Enter number of vector pairs: ")
+      FOR i FROM 1 TO n DO
+          v1 = INPUT("Enter vector 1: ")  // Example: [1, 2, 3]
+          v2 = INPUT("Enter vector 2: ")  // Example: [4, 5, 6]
+          dot_product(v1, v2, ps)
+
+          IF ps == 0 THEN
+              PRINT "Vectors are orthogonal."
+          ELSE
+              PRINT "Vectors are not orthogonal."
+          END IF
+      END FOR
+
+      // Problem 3
+
+      FUNCTION dot_product(v1, v2)
+          ps = 0
+          FOR i FROM 0 TO LENGTH(v1) - 1 DO
+              ps = ps + (v1[i] * v2[i])
+          END FOR
+          RETURN ps
+      END FUNCTION
+
+      // Main algorithm remains the same, but call the function:
+      ps = dot_product(v1, v2)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: #7eb838; /* Replace with Figma’s color code */
+  font-size: 2.5rem;
+}
+.btn-primary {
+  background-color: #7eb838; /* Adjust to Figma’s button color */
+  border: none;
+}
+
+#options button {
+  margin-bottom: 10px;
+}
+#feedback {
+  font-weight: bold;
+}

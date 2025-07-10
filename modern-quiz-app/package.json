@@ -1,0 +1,36 @@
+{
+  "name": "modern-quiz-app",
+  "version": "1.0.0",
+  "description": "A beautiful, interactive quiz application built with HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "quiz",
+    "javascript",
+    "html",
+    "css",
+    "education",
+    "interactive",
+    "game"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/modern-quiz-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/modern-quiz-app/issues"
+  },
+  "homepage": "https://your-username.github.io/modern-quiz-app/",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+} 

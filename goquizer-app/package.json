@@ -1,0 +1,38 @@
+{
+  "name": "goquizer-app",
+  "version": "1.0.0",
+  "description": "A modern, interactive quiz application built with HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "quiz",
+    "javascript",
+    "html",
+    "css",
+    "education",
+    "interactive",
+    "game",
+    "modern-ui",
+    "responsive"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/goquizer-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/goquizer-app/issues"
+  },
+  "homepage": "https://your-username.github.io/goquizer-app/",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+} 

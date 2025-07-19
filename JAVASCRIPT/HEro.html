@@ -1,0 +1,65 @@
+import { Button } from "@/components/ui/button";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-primary-glow/10 relative overflow-hidden font-['Inter']">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-hero opacity-20"></div>
+      <div className="absolute top-20 right-20 w-72 h-72 bg-primary-glow/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+      
+      {/* Hero Section */}
+      <div className="relative z-10 container mx-auto px-4 py-20 min-h-screen flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+          {/* Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-4">
+              <h1 className="text-5xl lg:text-7xl font-['Poppins'] font-extrabold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent leading-tight tracking-tight">
+                Chimaeze Ihejirika
+              </h1>
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-['Inter'] font-light">
+                Crafting digital experiences with passion and precision. Welcome to my creative portfolio where innovation meets design.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="default" size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary-glow hover:from-primary/90 hover:to-primary-glow/90 shadow-glow font-['Inter'] font-semibold">
+                View My Projects
+              </Button>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/20 hover:bg-primary/10 font-['Inter'] font-medium">
+                Get In Touch
+              </Button>
+            </div>
+            
+            <div className="flex items-center gap-8 pt-8">
+              <div className="text-center">
+                <div className="text-2xl font-['Poppins'] font-bold text-primary">50+</div>
+                <div className="text-sm text-muted-foreground font-['Inter'] font-medium">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-['Poppins'] font-bold text-primary">5+</div>
+                <div className="text-sm text-muted-foreground font-['Inter'] font-medium">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-['Poppins'] font-bold text-primary">100%</div>
+                <div className="text-sm text-muted-foreground font-['Inter'] font-medium">Client Satisfaction</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Hero Image */}
+          <div className="relative animate-float">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl transform rotate-6"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop" 
+              alt="Chimaeze Ihejirika - Portfolio" 
+              className="relative w-full h-auto rounded-2xl shadow-glow border border-white/10"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Index;

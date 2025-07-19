@@ -1,0 +1,15 @@
+Refactor a responsive 3-card product gallery into a reusable component-based structure using HTML, CSS, and JavaScript.
+
+✅ Requirements:
+
+Fix any layout or responsiveness issues (e.g., card widths on small screens, alignment, padding/margin bugs).
+
+Use clean, DRY (Don't Repeat Yourself) code — remove repetitive HTML by generating cards dynamically in JavaScript.
+
+Convert each product card into a reusable Card({title, price, description, image}) function or class that renders into the DOM.
+
+Maintain the theme toggle (light/dark) and the fade-in animation on cards.
+
+Ensure cards are responsive (3 on desktop, 1 on mobile) and hover interactions remain intact.
+
+Make the structure easy to scale with 5+ products by just updating the data array.

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Card Component</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #667eea;
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card.featured .card-content {
+            margin-top: 2rem;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: #718096;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .price .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .price .period {
+            font-size: 1rem;
+            color: #718096;
+            font-weight: 400;
+        }
+
+        .features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .features li.disabled {
+            color: #a0aec0;
+        }
+
+        .features li.disabled::before {
+            content: '✗';
+            color: #e53e3e;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn.secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn.secondary:hover {
+            background: #cbd5e0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pricing-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Animation for new cards */
+        .pricing-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.2s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="pricing-container" id="pricing-container">
+        <!-- Cards will be dynamically generated here -->
+    </div>
+
+    <script>
+        // Pricing Card Component Class
+        class PricingCard {
+            constructor(config) {
+                this.title = config.title || 'Basic Plan';
+                this.description = config.description || '';
+                this.price = config.price || 0;
+                this.currency = config.currency || '$';
+                this.period = config.period || '/month';
+                this.features = config.features || [];
+                this.buttonText = config.buttonText || 'Start Trial';
+                this.buttonAction = config.buttonAction || 'primary';
+                this.featured = config.featured || false;
+                this.onClick = config.onClick || null;
+            }
+
+            render() {
+                const card = document.createElement('div');
+                card.className = `pricing-card ${this.featured ? 'featured' : ''}`;
+                
+                const featuresHTML = this.features.map(feature => {
+                    const disabled = feature.disabled ? ' disabled' : '';
+                    return `<li class="${disabled}">${feature.text}</li>`;
+                }).join('');
+
+                card.innerHTML = `
+                    <div class="card-content">
+                        <h2 class="title">${this.title}</h2>
+                        ${this.description ? `<p class="description">${this.description}</p>` : ''}
+                        <div class="price">
+                            <span class="currency">${this.currency}</span>${this.price}<span class="period">${this.period}</span>
+                        </div>
+                        <ul class="features">
+                            ${featuresHTML}
+                        </ul>
+                        <button class="btn ${this.buttonAction === 'secondary' ? 'secondary' : ''}" onclick="handleButtonClick('${this.title}')">
+                            ${this.buttonText}
+                        </button>
+                    </div>
+                `;
+
+                return card;
+            }
+        }
+
+        // Pricing Plans Configuration
+        const pricingPlans = [
+            {
+                title: 'Basic Plan',
+                description: 'Perfect for individuals and small projects',
+                price: 9.99,
+                currency: '$',
+                period: '/month',
+                features: [
+                    { text: '1 GB Storage' },
+                    { text: 'Basic Support' },
+                    { text: 'All Core Features' },
+                    { text: 'Advanced Analytics', disabled: true },
+                    { text: 'Priority Support', disabled: true }
+                ],
+                buttonText: 'Start Trial',
+                buttonAction: 'primary',
+                featured: false
+            },
+            {
+                title: 'Pro Plan',
+                description: 'Ideal for growing businesses and teams',
+                price: 19.99,
+                currency: '$',
+                period: '/month',
+                features: [
+                    { text: '10 GB Storage' },
+                    { text: 'Priority Support' },
+                    { text: 'All Core Features' },
+                    { text: 'Advanced Analytics' },
+                    { text: 'API Access' },
+                    { text: 'Custom Integrations', disabled: true }
+                ],
+                buttonText: 'Get Started',
+                buttonAction: 'primary',
+                featured: true
+            },
+            {
+                title: 'Enterprise Plan',
+                description: 'For large organizations with advanced needs',
+                price: 49.99,
+                currency: '$',
+                period: '/month',
+                features: [
+                    { text: 'Unlimited Storage' },
+                    { text: '24/7 Support' },
+                    { text: 'All Core Features' },
+                    { text: 'Advanced Analytics' },
+                    { text: 'API Access' },
+                    { text: 'Custom Integrations' },
+                    { text: 'Dedicated Account Manager' }
+                ],
+                buttonText: 'Contact Sales',
+                buttonAction: 'secondary',
+                featured: false
+            }
+        ];
+
+        // Initialize Pricing Cards
+        function initializePricingCards() {
+            const container = document.getElementById('pricing-container');
+            
+            pricingPlans.forEach(plan => {
+                const card = new PricingCard(plan);
+                container.appendChild(card.render());
+            });
+        }
+
+        // Handle Button Clicks
+        function handleButtonClick(planTitle) {
+            console.log(`Button clicked for: ${planTitle}`);
+            
+            // You can customize this function to handle different actions
+            const actions = {
+                'Basic Plan': () => {
+                    alert('Starting Basic Plan trial...');
+                    // Add your trial logic here
+                },
+                'Pro Plan': () => {
+                    alert('Redirecting to Pro Plan checkout...');
+                    // Add your checkout logic here
+                },
+                'Enterprise Plan': () => {
+                    alert('Opening contact form for Enterprise Plan...');
+                    // Add your contact form logic here
+                }
+            };
+
+            if (actions[planTitle]) {
+                actions[planTitle]();
+            }
+        }
+
+        // Utility function to create a new pricing card dynamically
+        function createPricingCard(config) {
+            const card = new PricingCard(config);
+            return card.render();
+        }
+
+        // Example of adding a new card dynamically
+        function addCustomCard() {
+            const container = document.getElementById('pricing-container');
+            const customConfig = {
+                title: 'Custom Plan',
+                description: 'Tailored to your specific needs',
+                price: 29.99,
+                currency: '$',
+                period: '/month',
+                features: [
+                    { text: 'Custom Storage' },
+                    { text: 'Custom Support' },
+                    { text: 'All Features' },
+                    { text: 'Custom Integrations' }
+                ],
+                buttonText: 'Contact Us',
+                buttonAction: 'secondary',
+                featured: false
+            };
+
+            const newCard = createPricingCard(customConfig);
+            container.appendChild(newCard);
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializePricingCards);
+
+        // Export for external use
+        window.PricingCard = PricingCard;
+        window.createPricingCard = createPricingCard;
+        window.addCustomCard = addCustomCard;
+    </script>
+</body>
+</html> 
